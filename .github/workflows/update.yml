@@ -1,0 +1,35 @@
+name: Auto Update Local Instances
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if needed
+
+jobs:
+  update-nodes:
+    runs-on: self-hosted  # Assumes you're using a self-hosted runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Stop running instance
+        run: |
+          chmod +x node-stop.sh
+          ./node-stop.sh || true
+
+      - name: Pull latest changes to local instance
+        run: git pull origin main
+
+      - name: Compile code inside core-blockchain/node_src
+        run: |
+          cd node_src
+          make all
+
+      - name: Return to core-blockchain directory
+        run: cd ..
+
+      - name: Start blockchain node
+        run: |
+          chmod +x node-start.sh
+          ./node-start.sh
