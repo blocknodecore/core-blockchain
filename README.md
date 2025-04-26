@@ -1,6 +1,6 @@
 # BNC Blockchain Node
 
-This project aims to provide installation, running, and maintenance capabilities of **BNC Chain validator node** for potential and existing BNC Chain Blockchain backers. The consensus structure of this chain is Delegated proof of stake "DPos" and is governed by the symbiosis of DAPO's implementation of go-ethereum and our system contracts [https://github.com/BNC/System-Contracts/tree/main]. This repository has multiple release candidates inline so we recommend checking for updates for better functions and stability.
+This project aims to provide installation, running, and maintenance capabilities of **BNC Chain validator node** for potential and existing BNC Chain Blockchain backers. The consensus structure of this chain is Delegated proof of stake "DPos" and is governed by the symbiosis of BNC's implementation of go-ethereum and our system contracts [https://github.com/blocknodecore/System-Contracts]. This repository has multiple release candidates inline so we recommend checking for updates for better functions and stability.
 
 ## System Requirements
 
@@ -19,7 +19,7 @@ To back the BNC blockchain you can become a validator. Full flow to become a val
 
 * Install this package **([See Installation](#installation))**
 
-* Download your newly created validator wallet from your server and import it into your metamask or preferred wallet. Fund this account with the appropriate DAPO Coins needed to become a validator. Example command to download the wallet on your local PC. Only works for UNIX-based OSes or on any environment that can run the OpenSSH package:
+* Download your newly created validator wallet from your server and import it into your metamask or preferred wallet. Fund this account with the appropriate BNC Coins needed to become a validator. Example command to download the wallet on your local PC. Only works for UNIX-based OSes or on any environment that can run the OpenSSH package:
 ```bash
   scp -r root@<server_ip>:/root/core-blockchain/chaindata/node1/keystore ./
   scp root@<server_ip>:/root/core-blockchain/chaindata/node1/pass.txt ./
@@ -56,7 +56,7 @@ Skip the above commands if you have already updated the system and installed the
 Connect again to your server after reboot
 ```bash
   sudo -i
-  git clone https://github.com/BNC/core-blockchain.git
+  git clone https://github.com/blocknodecore/core-blockchain.git
   cd core-blockchain
   ./node-setup.sh --validator 1
 ```
